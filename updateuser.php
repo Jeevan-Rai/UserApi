@@ -4,16 +4,17 @@ include 'connection.php';
 
 extract($_POST);
 
-$id = $_REQUEST['id'];
 
 $sql = "UPDATE user set uname = '$uname', email = '$email' WHERE id = '$id'";
 $res = mysqli_query($con, $sql);
 
 if($sql){
-    $response['status'] = "Update success";
+    $response['status'] = 000;
+    $response['message'] = "Update Successful";
 }
 else{
-    $response['status'] = "Update failed";
+    $response['status'] = 001;
+    $response['message'] = "Update Failed";
 }
 
 echo json_encode($response);

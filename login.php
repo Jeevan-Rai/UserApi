@@ -4,7 +4,7 @@ include 'connection.php';
 
 extract($_POST);
 
-$sql = "SELECT * FROM user WHERE email = '$email'";
+$sql = "SELECT id, uname, email FROM user WHERE email = '$email'";
 $res = mysqli_query($con, $sql);
 
 if($res->num_rows>0) {
@@ -23,7 +23,7 @@ else{
 }
 else{
 
-    $response['message'] = "Login Failed";
+    $response['message'] = "User not exists!";
     $response['user'] = null;
 
 }
