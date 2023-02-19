@@ -2,19 +2,21 @@
 
 include 'connection.php';
 
-$id = $_REQUEST['id'];
+$id = $_POST['id'];
 
 $sql = "DELETE FROM user where id='$id'";
 $res = mysqli_query($con, $sql);
 
 if($res){
-    $response['status'] = "Deleted successfuly";
+    $response['status'] = 100;
+    $response['message'] = "Deleted successfuly";
 }
+
 else{
-    $response['status'] = "Deletion Failed";
+    $response['status'] = 200;
+    $response['message'] = "Deletion Failed";
 }
 
 
 echo json_encode($response);
-
 ?>
